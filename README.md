@@ -52,7 +52,7 @@ Copie todo código fonte para uma pasta local e instale os pré-requisitos abaix
 
 ### Instalar Pacotes
 
-Dentro da pasta local execute comando a seguir para instalar os pacotes requeridos.
+Dentro da pasta local execute o comando a seguir para instalar os pacotes requeridos.
 
 ```sh
 $ pip install -r requirements.txt
