@@ -52,10 +52,16 @@ Copie todo código fonte para uma pasta local e instale os pré-requisitos abaix
 
 ### Instalar Pacotes
 
-Dentro da pasta local execute o comando a seguir para instalar os pacotes requeridos.
+No terminal, dentro da pasta local execute o comando a seguir para instalar os pacotes requeridos.
 
 ```sh
 $ pip install -r requirements.txt
+
+```
+Ainda no terminal, faça donwload do modelo de linguagem em português do spyCy:
+
+```sh
+$ python -m spacy download pt_core_news_lg
 
 ```
 
