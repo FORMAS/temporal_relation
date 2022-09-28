@@ -1,0 +1,133 @@
+The following is a list of all values of the "tense" attribute of EVENT elements. Each value is accompanied with the name of the tense in Portuguese and examples, using forms of the verb "fazer" ("do").
+
+A few notes:
+
+--Compound tenses with the auxiliary "ter" are not treated as PERFECTIVE aspect, but rather as separate tenses. In this case, as well as other cases of tenses involving more than one word token, the auxiliary forms are not inside the EVENT element. For instance, for "teria feito", only "feito" is inside EVENT tags, but its tense is annotated as "CC" ("condicional composto"); it is not annotated as a past participle:
+
+      teria <EVENT tense="CC">feito</EVENT>
+
+-- Mood is also included in these values, because there is not a perfect parallelism between different moods. For instance, indicative mood shows more tenses than subjunctive mood. Another motivating example: present subjunctive seems to be used very frequently for events that follow the DCT, present indicative not as much.
+
+-- The construction involving forms of "ir" ("go") and an infinitive are treated like the compound tenses.
+Note that they are often the translation of English constructions with "will", which are annotated as FUTURE tense in the original data. The special annotations for these periphrases with "ir" are intended to capture the future value of this construction. Example:
+
+      vão <EVENT tense="IR-PI+INF">fazer</EVENT>
+
+-- Passives are treated like in the original English corpus: the auxiliary verb is outside the EVENT element and only the participle is inside it, but the tense is that of the auxiliary. Whenever two examples are provided in the list of the tense values that is presented below, the second one is for the passive construction.
+
+      é <EVENT tense="PI">feito</EVENT>
+
+-- Similar constructions, but involving "estar" ("be"), are treated not very differently. In order to distinguish these constructions from passives with "ser", the constructions with "estar" are given dedicated tense values. These values are similar to the tense value of the auxiliary "estar", but they contain the suffix "+PPA".
+
+      está <EVENT tense="PI+PPA">feito</EVENT>
+
+
+The list of all tense values used in TimeBankPT is:
+
+C
+  Condicional
+  Ex.: faria, seria feito
+CC
+  Condicional composto
+  Ex.: teria feito, teria sido feito
+FC
+  Futuro do conjuntivo
+  Ex.: fizer, for feito
+FI:
+  Futuro do indicativo
+  Ex.: fará, será feito
+FIC
+  Futuro composto do indicativo
+  Ex.: terá feito, terá sido feito
+GER
+  Gerúndio
+  Ex.: fazendo, sendo feito
+GERC
+  Gerúndio composto
+  Ex.: tendo feito, tendo sido feito
+IMP
+  Imperativo
+  Ex.: faz, sê feito
+INF
+  Infinitivo
+  Ex.: fazer, ser feito
+INFC
+  Infinitivo composto
+  Ex.: ter feito, ter sido feito
+INFF
+  Infinitivo flexionado
+  Ex.: fazer, ser feito (fazeres, etc.)
+INFFC
+  Infinitivo flexionado composto
+  Ex.: ter feito, ter sido feito (teres feito, etc)
+INF+PPA
+  Verb "estar" in the "infinitivo" (INF) combined with a past participle form
+  Ex.: está feito
+IR-C+INF
+  Verb "ir" in the "condicional" (C) combined with an infinitive form
+  Ex.: iria fazer, iria ser feito
+IR-FI+INF
+  Verb "ir" in the "futuro do indicativo" (FI) combined with an infinitive form
+  Ex.: irá fazer, irá ser feito
+IR-INFF+INF
+  Verb "ir" in the "infinitivo flexionado" (INFF) combined with an infinitive form
+  Ex.: ir fazer, ir ser feito
+IR-PC+INF
+  Verb "ir" in the "presente do conjuntivo" (PC) combined with an infinitive form
+  Ex.: vá fazer, vá ser feito
+IR-PIC+INF
+  Verb "ir" in the "pretérito imperfeito do conjuntivo" (PIC) combined with an infinitive form
+  Ex.: fosse fazer, fosse ser feito
+IR-PII+INF
+  Verb "ir" in the "pretérito imperfeito do indicativo" (PII) combined with an infinitive form
+  Ex.: ia fazer, ia ser feito
+IR-PI+INF
+  Verb "ir" in the "presente do indicativo" (PII) combined with an infinitive form
+  Ex.: vai fazer, vai ser feito
+MPCC
+  Mais-que-perfeito composto do conjuntivo
+  Ex.: tivesse feito, tivesse sido feito
+MPI
+  Mais-que-perfeito simples do indicativo
+  Ex.: fizera, fora feito
+MPIC
+  Mais-que-perfeito composto do indicativo
+  Ex.: tinha feito, tinha sido feito
+NONE
+  (used for non-verbs)
+PC
+  Presente do conjuntivo
+  Ex.: faça, seja feito
+PC+PPA
+  Verb "estar" in the "presente do conjuntivo" (PC) combined with a past participle form
+  Ex.: esteja feito
+PI
+  Presente do indicativo
+  Ex.: faz, é feito
+PIC
+  Pretérito imperfeito do conjuntivo
+  Ex.: fizesse, fosse feito
+PII
+  Pretérito imperfeito do indicativo
+  Ex.: fazia, era feito
+PII+PPA
+  Verb "estar" in the "pretérito imperfeito do indicativo" (PII) combined with a past participle form
+  Ex.: estava feito
+PI+PPA
+  Verb "estar" in the "presente do indicativo" (PII) combined with a past participle form
+  Ex.: está feito
+PPA
+  Past participle form
+  Ex.: feito
+PPCC
+  Pretérito perfeito composto do conjuntivo
+  Ex.: tenha feito, tenha sido feito
+PPI
+  Pretérito perfeito simples do indicativo
+  Ex.: fez, foi feito
+PPIC
+  Pretérito perfeito composto do indicativo
+  Ex.: tem feito, tem sido feito
+PPIC+PPA
+  Verb "estar" in the "pretérito perfeito composto do indicativo" (PPIC) combined with a past participle form
+  Ex.: tem estado feito

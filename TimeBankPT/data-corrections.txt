@@ -1,0 +1,1387 @@
+
+======================
+File: NYT19980212.0019
+
+Original:
+<TIMEX3 tid="t41" type="TIME" value="1998-02-12T01:58:00" temporalFunction="false" functionInDocument="CREATION_TIME">02/12/1998
+01:58:00</TIMEX3>
+
+Changed To:
+<TIMEX3 tid="t41" type="TIME" value="1998-02-13T01:58:00" temporalFunction="false" functionInDocument="CREATION_TIME">02/13/1998
+01:58:00</TIMEX3>
+
+Explanation:
+The article is about a past event that happened at the end of the afternoon of the same day as the DCT.
+Therefore, the DCT cannot be the early morning of that day.
+
+The event is described as having occurred on a Thursday, which is consistent with the date Feb 12, 1998.
+The DCT has been changed to Feb 13, 1998, and the time of day kept.
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute --- a cycle is generated.
+
+===========================
+File: wsj_0127.tml
+
+
+Original:
+<TIMEX3 tid="t27" type="DATE" value="1998" temporalFunction="false" functionInDocument="NONE">período de 1988</TIMEX3>.</s>
+
+Changed To:
+<TIMEX3 tid="t27" type="DATE" value="1988" temporalFunction="false" functionInDocument="NONE">período de 1988</TIMEX3>.</s>
+
+Explanation:
+The "value" is obviously wrong.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute --- a cycle is generated.
+
+===========================
+File: wsj_0570.tml
+
+
+Original:
+
+<TLINK lid="l12" relType="AFTER" eventID="e11" relatedToTime="t88" task="A"/>
+
+
+Changed To:
+<TLINK lid="l12" relType="BEFORE" eventID="e11" relatedToTime="t88" task="A"/>
+
+Explanation:
+t88 has the "value" "FUTURE_REF" ad "e11" is a past event.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute --- a cycle is generated.
+
+
+===========================
+File: wsj_0610.tml
+
+
+Original:
+<TLINK lid="l6" relType="AFTER" eventID="e35" relatedToTime="t207" task="A"/>
+
+
+Changed To:
+<TLINK lid="l6" relType="BEFORE" eventID="e35" relatedToTime="t207" task="A"/>
+
+Explanation:
+t207 has the "value" "FUTURE_REF" and "e35" is a past event.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute --- a cycle is generated.
+
+
+===========================
+File: wsj_1003.tml
+
+Original:
+<TIMEX3 tid="t219" type="DATE" value="1990-06-01" temporalFunction="true" functionInDocument="NONE" anchorTimeID="t178">1 de junho</TIMEX3>
+
+
+Changed To:
+<TIMEX3 tid="t219" type="DATE" value="1989-06-01" temporalFunction="true" functionInDocument="NONE" anchorTimeID="t178">1 de junho</TIMEX3>
+
+Explanation:
+"1 de junho" (June, 1) refers to the previous June, 1, not the next one
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute --- a cycle is generated.
+
+
+===========================
+File: APW19980322.0749.tml
+
+Original:
+<TLINK lid="l2" relType="OVERLAP" eventID="e21" relatedToTime="t128" task="A"/>
+(...)
+<TLINK lid="l12" relType="BEFORE" eventID="e21" relatedToTime="t125" task="B"/>
+
+Changed To:
+<TLINK lid="l2" relType="BEFORE" eventID="e21" relatedToTime="t128" task="A"/>
+(...)
+<TLINK lid="l12" relType="OVERLAP" eventID="e21" relatedToTime="t125" task="B"/>
+
+Explanation:
+"agendado para ser retomado na segunda-feira" ("set to resume Monday"):
+"agendado" ("set") overlaps with the DCT (t125) and precedes "segunda-feira" ("Monday", t128).
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute ---
+no cycle is generated, but incorrect predictions were obtained, as t125
+(value="1998-03-22T14:57:00") precedes t128 (value="1998-03-23").
+
+===========================
+File: wsj_0152.tml
+
+Original:
+<TLINK lid="l4" relType="OVERLAP-OR-AFTER" eventID="e4" relatedToTime="t28" task="A"/>
+
+Changed To:
+<TLINK lid="l4" relType="BEFORE" eventID="e4" relatedToTime="t28" task="A"/>
+
+Explanation:
+e4 precedes the DCT (according to the TLINK l8), which in turn precedes t28 (according to its "value").
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute;
+DCT (value="1989-11-02") precedes t28 (value="1989-11-06")
+
+
+===========================
+File: wsj_0570.tml
+
+Original:
+<TLINK lid="l15" relType="OVERLAP" eventID="e43" relatedToTime="t104" task="A"/>
+
+
+Changed To:
+<TLINK lid="l15" relType="BEFORE" eventID="e43" relatedToTime="t104" task="A"/>
+
+Explanation:
+t104 "fevereiro" ("February") refers to February 1990 (value="1990-02"), and the
+DCT is "1989-10-30", therefore the DCT precedes t104.
+e43 precedes the DCT, so it must also precede t104.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0584.tml
+
+Original:
+<TLINK lid="l10" relType="OVERLAP" eventID="e189" relatedToTime="t351" task="A"/>
+
+Changed To:
+<TLINK lid="l10" relType="BEFORE" eventID="e189" relatedToTime="t351" task="A"/>
+
+Explanation:
+According to TLINK l53, e189 precedes the DCT (value="1989-10-30").
+t351 has the value="1990", therefore e189 cannot overlap t351, but it must precede it.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0584.tml
+
+Original:
+<TLINK lid="l11" relType="OVERLAP" eventID="e189" relatedToTime="t352" task="A"/>
+
+Changed To:
+<TLINK lid="l11" relType="BEFORE" eventID="e189" relatedToTime="t352" task="A"/>
+
+Explanation:
+According to the TLINK l53, e189 precedes the DCT, whose value is value="1989-10-30".
+t352 has the value "1991", therefore e189 cannot overlap t352, but rather precede it.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0584.tml
+
+Original:
+<TLINK lid="l12" relType="OVERLAP" eventID="e190" relatedToTime="t351" task="A"/>
+
+Changed To:
+<TLINK lid="l12" relType="BEFORE" eventID="e190" relatedToTime="t351" task="A"/>
+
+Explanation:
+According to the TLINK l54, e190 precedes the DCT, whose "value" is "1989-10-30".
+t351 has the value "1990", therefore e190 cannot overlap t351 but rather precede it.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0584.tml
+
+Original:
+<TLINK lid="l13" relType="OVERLAP" eventID="e190" relatedToTime="t352" task="A"/>
+
+Changed To:
+<TLINK lid="l13" relType="BEFORE" eventID="e190" relatedToTime="t352" task="A"/>
+
+Explanation:
+According to the TLINK l54, e190 precedes the DCT, whose "value" is "1989-10-30".
+t352 has the value "1991", therefore e190 cannot overlap t352 but rather precede it.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0316.tml
+
+Original:
+<TLINK lid="l1" relType="BEFORE-OR-OVERLAP" eventID="e2050" relatedToTime="t16" task="A"/>
+
+Changed To:
+<TLINK lid="l1" relType="BEFORE" eventID="e2050" relatedToTime="t16" task="A"/>
+
+Explanation:
+According to the TLINK l10, e2050 precedes the DCT.
+The value of the DCT is "1989-11-01".
+t16 has the value "1990" and therefore follows the DCT.
+e2050 must precede t16.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0811.tml
+
+Original:
+<TLINK lid="l1" relType="BEFORE-OR-OVERLAP" eventID="e6" relatedToTime="t42" task="A"/>
+
+Changed To:
+<TLINK lid="l1" relType="BEFORE" eventID="e6" relatedToTime="t42" task="A"/>
+
+Explanation:
+According to the TLINK l6, e6 precedes the DCT.
+The DCT has the value "1989-10-27".
+t42 has the value "2004-11-01", therefore it follows the DCT.
+e6 must precede t42.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: AP900816-0139.tml
+
+Original:
+<TLINK lid="l22" relType="VAGUE" eventID="e186" relatedToTime="t303" task="A"/>
+
+Changed To:
+<TLINK lid="l22" relType="BEFORE" eventID="e186" relatedToTime="t303" task="A"/>
+
+Explanation:
+According to the TLINK l84, e186 precedes the DCT.
+The DCT has the value "1990-08-16T20:41".
+t303 has the value "1990-09", therefore if follows the DCT.
+e186 must precede t303
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: AP900816-0139.tml
+
+Original:
+<TLINK lid="l23" relType="VAGUE" eventID="e185" relatedToTime="t303" task="A"/>
+
+Changed To:
+<TLINK lid="l23" relType="BEFORE" eventID="e185" relatedToTime="t303" task="A"/>
+
+Explanation:
+According to the TLINK l85, e185 precedes the DCT.
+The DCT has the value "1990-08-16T20:41".
+t303 has the value "1990-09", therefore it follows the DCT.
+e185 must precede t303
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: wsj_0570.tml
+
+Original:
+<TLINK lid="l10" relType="VAGUE" eventID="e15" relatedToTime="t88" task="A"/>
+
+Changed To:
+<TLINK lid="l10" relType="BEFORE" eventID="e15" relatedToTime="t88" task="A"/>
+
+Explanation:
+According to the TLINK l40, e15 precedes the DCT.
+t88 has the value "FUTURE_REF", therefore e15 must precede t88.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: AP900815-0044.tml
+
+Original:
+<TIMEX3 tid="t65" type="DATE" value="1990-08-10" temporalFunction="true" functionInDocument="NONE" anchorTimeID="t3">
+
+Changed To:
+<TIMEX3 tid="t65" type="DATE" value="1990-08-17" temporalFunction="true" functionInDocument="NONE" anchorTimeID="t3">
+
+Explanation:
+This timex refers to the following Friday, not the previous one.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: VOA19980303.1600.2745.tml
+
+Original:
+<TLINK lid="l20" relType="OVERLAP-OR-AFTER" eventID="e97" relatedToTime="t133" task="A"/>
+
+Changed To:
+
+<TLINK lid="l20" relType="AFTER" eventID="e97" relatedToTime="t133" task="A"/>
+
+Explanation:
+According to the TLINK l48, e97 follows the DCT.
+t133 has the value "PAST_REF".
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_061.tml
+
+Original:
+<TLINK lid="l7" relType="AFTER" eventID="e5" relatedToTime="t27" task="B"/>
+
+Changed To:
+<TLINK lid="l7" relType="BEFORE" eventID="e5" relatedToTime="t27" task="B"/>
+
+Explanation:
+(This involves quarters of the American fiscal year, which is a mess.)
+e5 is temporally located in the third (American fiscal) quarter of 1989. The DCT has the value "1989-11-02".
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0924.tml
+
+Original:
+<TLINK lid="l2" relType="OVERLAP" eventID="e13" relatedToTime="t34" task="A"/>
+
+Changed To:
+<TLINK lid="l2" relType="AFTER" eventID="e13" relatedToTime="t34" task="A"/>
+
+Explanation:
+e13 follows the DCT according to the TLINK l8.
+t34 has the value "PAST_REF" (i.e. it precedes the DCT).
+Therefore, e13 must follow t34.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0346.tml
+
+Original:
+<TLINK lid="l2" relType="VAGUE" eventID="e16" relatedToTime="t32" task="A"/>
+
+Changed To:
+<TLINK lid="l2" relType="AFTER" eventID="e16" relatedToTime="t32" task="A"/>
+
+Explanation:
+e16 follows the DCT according to the TLINK l18.
+t32 (value="1989-03-31") precedes the DCT (value="1989-11-01").
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0662.tml
+
+Original:
+<TLINK lid="l4" relType="VAGUE" eventID="e3" relatedToTime="t32" task="A"/>
+
+Changed To:
+<TLINK lid="l4" relType="AFTER" eventID="e3" relatedToTime="t32" task="A"/>
+
+Explanation:
+e3 follows the DCT according to the TLINK l10.
+t32 (value="1989-10-27") precedes the DCT (value="1989-10-30").
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0670.tml
+
+Original:
+<TLINK lid="l7" relType="VAGUE" eventID="e10" relatedToTime="t53" task="A"/>
+
+Changed To:
+<TLINK lid="l7" relType="AFTER" eventID="e10" relatedToTime="t53" task="A"/>
+
+Explanation:
+e10 follows the DCT according to the TLINK l26.
+t53 (value="1989-Q3") precedes the DCT (value="1989-10-30"). (Does it?)
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0736.tml
+
+Original:
+<TLINK lid="l4" relType="OVERLAP" eventID="e7" relatedToTime="t62" task="A"/>
+
+Changed To:
+<TLINK lid="l4" relType="AFTER" eventID="e7" relatedToTime="t62" task="A"/>
+
+Explanation:
+e7 follows the DCT according to the TLINK l26.
+t62 (value="1989-Q3") precedes the DCT (value="1989-10-27").
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0736.tml
+
+Original:
+<TLINK lid="l25" relType="AFTER" eventID="e8" relatedToTime="t61" task="B"/>
+
+Changed To:
+<TLINK lid="l25" relType="BEFORE" eventID="e8" relatedToTime="t61" task="B"/>
+
+Explanation:
+e8 must precede the DCT as it is included in t62, which precedes the DCT.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: wsj_0736.tml
+
+Original:
+<TLINK lid="l23" relType="AFTER" eventID="e9" relatedToTime="t61" task="B"/>
+
+Changed To:
+<TLINK lid="l23" relType="BEFORE" eventID="e9" relatedToTime="t61" task="B"/>
+
+Explanation:
+e9 must precede the DCT since it is included in t62, which precedes the DCT.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0172.tml
+
+Original:
+<TLINK lid="l3c" relType="OVERLAP" relatedToEvent="e17" eventID="e11" task="C"/>
+
+Changed To:
+<TLINK lid="l3c" relType="AFTER" relatedToEvent="e17" eventID="e11" task="C"/>
+
+Explanation:
+e17 precedes the DCT according to the TLINK l17.
+e11 follows the DCT according to the TLINK l16.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: WSJ910225-0066.tml
+
+Original:
+<TLINK lid="l62c" relType="OVERLAP" relatedToEvent="e398" eventID="e391" task="C"/>
+
+Changed To:
+<TLINK lid="l62c" relType="BEFORE" relatedToEvent="e398" eventID="e391" task="C"/>
+
+Explanation:
+e391 precedes the DCT according to the TLINK l112.
+e398 follows the DCT according to the TLINK l113.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: wsj_0184.tml
+
+Original:
+<TIMEX3 tid="t79" type="DURATION" value="1989-Q4" temporalFunction="true" functionInDocument="NONE" anchorTimeID="t78">o quarto trimestre</TIMEX3>.</s>
+
+Changed To:
+<TIMEX3 tid="t79" type="DURATION" value="1990-Q4" temporalFunction="true" functionInDocument="NONE" anchorTimeID="t78">o quarto trimestre</TIMEX3>.</s>
+
+Explanation:
+It has to refer to the fourth quarter of the ongoing fiscal year, not the previous year,
+because of what the text says.
+
+How the error was detected:
+Manual inspection.
+
+===========================
+File: APW19980322.0749.tml
+
+Original:
+<TLINK lid="l9" relType="AFTER" eventID="e95" relatedToTime="t145" task="A"/>
+
+Changed To:
+<TLINK lid="l9" relType="BEFORE" eventID="e95" relatedToTime="t145" task="A"/>
+
+Explanation:
+e195 is a past event (because of the verb's tense).
+t145 is a future timex.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute --- a cycle is generated.
+
+===========================
+File: wsj_0135.tml
+
+Original:
+<TIMEX3 tid="t30" type="DATE" value="1989" temporalFunction="true" functionInDocument="NONE" anchorTimeID="t28">
+<TIMEX3 tid="t32" type="DATE" value="1989" temporalFunction="true" functionInDocument="NONE" anchorTimeID="t30">
+<TIMEX3 tid="t35" type="DATE" value="1989" temporalFunction="true" functionInDocument="NONE" anchorTimeID="t32">
+
+Changed To:
+<TIMEX3 tid="t30" type="DATE" value="P1Y" temporalFunction="true" functionInDocument="NONE" anchorTimeID="t28">
+<TIMEX3 tid="t32" type="DATE" value="P1Y" temporalFunction="true" functionInDocument="NONE" anchorTimeID="t30">
+<TIMEX3 tid="t35" type="DATE" value="P1Y" temporalFunction="true" functionInDocument="NONE" anchorTimeID="t32">
+
+Explanation:
+They are all about American fiscal years. E.g. the American fiscal year of 1990 can go from 1989-10-1 to
+1990-09-30 depending on the company. In this case it seems to go from 1989-07-01 to 1990-06-30 --- check t28.
+t30 is the ongoing fiscal year (DCT = 1989-11-02) and it is the fiscal year that immediately
+follows t32 = t35 (according to the text).
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute --- a cycle is generated.
+
+===========================
+File: wsj_0568.tml
+
+Original:
+<TLINK lid="l21" relType="AFTER" eventID="e70" relatedToTime="t243" task="A"/>
+
+Changed To:
+<TLINK lid="l21" relType="BEFORE" eventID="e70" relatedToTime="t243" task="A"/>
+
+Explanation:
+e70 precedes the DCT and t234 follows it.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute --- a cycle is generated.
+
+======================
+
+File: APW19980301.0720.tml (TEST)
+
+Original:
+<TLINK lid="l23" relType="AFTER" eventID="e99" relatedToTime="t1987" task="A"/>
+
+Changed To:
+<TLINK lid="l23" relType="OVERLAP" eventID="e99" relatedToTime="t1987" task="A"/>
+
+Explanation:
+t1987 is "Sunday" and includes the DCT.
+e99 precedes the DCT according to the TLINK l52.
+Therefore, it cannot follow t1987.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute --- a cycle is generated.
+
+===========================
+
+File: wsj_0527.tml (TEST)
+
+Original:
+<TLINK lid="l6" relType="BEFORE" eventID="e39" relatedToTime="t95" task="A"/>
+
+Changed To:
+<TLINK lid="l6" relType="AFTER" eventID="e39" relatedToTime="t95" task="A"/>
+
+Explanation:
+e39 follows t92, which follows t95.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute --- a cycle is generated.
+
+
+===========================
+
+File: wsj_0527.tml (TEST)
+
+Original:
+<TLINK lid="l2" relType="AFTER" eventID="e12" relatedToTime="t89" task="A"/>
+
+Changed To:
+<TLINK lid="l2" relType="OVERLAP" eventID="e12" relatedToTime="t89" task="A"/>
+
+Explanation:
+e12 precedes the DCT ("1989-10-30") by a few days.
+t89 has the value "1989",
+e12 and t89 should overlap.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute --- a cycle is generated.
+
+
+===========================
+===========================
+
+File: CNN19980213.2130.0155.tml
+
+Original:
+<TIMEX3 tid="t104" type="DATE" value="1998-02-13" temporalFunction="false" functionInDocument="CREATION_TIME">19980213</TIMEX3>
+
+Changed To:
+<TIMEX3 tid="t104" type="DATE" value="1998-02-13T23:00" temporalFunction="false" functionInDocument="CREATION_TIME">19980213</TIMEX3>
+
+Explanation:
+The time that was added is actually made up.
+But there was a problem with leaving the DCT as a date.
+t133 would be identical to the DCT ("1998-02-13").
+According to the TLINK l8, e72 overlaps t133.
+According to the TLINK l28, e72 is before the DCT.
+A similar problem occurs again in the same document, involving e68, t133, l10, and l29.
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+
+File: VOA19980303.1600.0917.tml
+
+Original:
+<TIMEX3 tid="t2078" type="DATE" value="1998-03-03" temporalFunction="true" functionInDocument="CREATION_TIME">19980303</TIMEX3>
+
+Changed To:
+<TIMEX3 tid="t2078" type="DATE" value="1998-03-03T23:00" temporalFunction="true" functionInDocument="CREATION_TIME">19980303</TIMEX3>
+
+Explanation:
+The time that was added is actually made up.
+But there was a problem with leaving the DCT as a date.
+t2221  ("early Tuesday") would be a subinterval of the the DCT ("1998-02-13" mod="START").
+According to the TLINK l5, e9 overlaps t2221.
+According to the TLINK l12, e9 is before the DCT.
+The correction makes the DCT and t2221 disjoint.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+
+File: wsj_0781.tml
+
+Original:
+<TIMEX3 tid="t277" type="DATE" value="1989-10-27" temporalFunction="false" functionInDocument="CREATION_TIME">10/27/89</TIMEX3>
+
+Changed To:
+<TIMEX3 tid="t277" type="DATE" value="1989-10-27T23:00" temporalFunction="false" functionInDocument="CREATION_TIME">10/27/89</TIMEX3>
+
+Explanation:
+The time that was added is actually made up.
+But there was a problem with leaving the DCT as a date.
+t280  ("Friday") would be identical to the the DCT ("1989-10-27").
+According to the TLINK l3, e24 overlaps t280.
+According to the TLINK l29, e24 is before the DCT.
+The correction makes the temporal relations consistent.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+
+File: wsj_928.tml
+
+
+Original:
+<TLINK lid="l21" relType="OVERLAP-OR-AFTER" eventID="e45" relatedToTime="t96" task="A"/>
+
+Changed To:
+<TLINK lid="l21" relType="AFTER" eventID="e45" relatedToTime="t96" task="A"/>
+
+Explanation:
+e45 follows the DCT according to the TLINK l40.
+t96 precedes the DCT.
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+
+File: wsj_0527.tml (TEST)
+
+
+Original:
+<TLINK lid="l4" relType="BEFORE" eventID="e40" relatedToTime="t95" task="A"/>
+
+Changed To:
+<TLINK lid="l4" relType="AFTER" eventID="e40" relatedToTime="t95" task="A"/>
+
+Explanation:
+e40 overlaps t92, which follows t95.
+e40 cannot precede t95, it either overlaps or follows it.
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+
+File: wsj_0586.tml (TEST)
+
+
+Original:
+<TLINK lid="l71" relType="AFTER" eventID="e936" relatedToTime="t198" task="B"/>
+
+Changed To:
+<TLINK lid="l71" relType="BEFORE" eventID="e936" relatedToTime="t198" task="B"/>
+
+Explanation:
+e936 overlaps t282 according to the TLINK l24.
+t282 (value="1989-10-27TMO") precedes the DCT (value="1989-10-30").
+e936 cannot be after the DCT.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+
+File: ea980120.1830.0456.tml (TEST)
+
+
+Original:
+<TIMEX3 tid="t13" type="DATE" value="1998-01-20" temporalFunction="false" functionInDocument="CREATION_TIME">980120</TIMEX3>
+
+Changed To:
+<TIMEX3 tid="t13" type="DATE" value="1998-01-20T23:00" temporalFunction="false" functionInDocument="CREATION_TIME">980120</TIMEX3>
+
+Explanation:
+The time that was added is made up.
+According to the TLINK l1, e1 overlaps t14.
+According to the TLINK l4, e1 precedes the DCT
+t14 has the value "1998-01-20", i.e. without this change
+it is identical to the DCT.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+
+File: wsj_0586.tml (TEST)
+
+
+Original:
+<TIMEX3 tid="t198" type="DATE" value="1989-10-30" temporalFunction="false" functionInDocument="CREATION_TIME">10/30/89</TIMEX3>
+
+Changed To:
+<TIMEX3 tid="t198" type="DATE" value="1989-10-30T23:00" temporalFunction="false" functionInDocument="CREATION_TIME">10/30/89</TIMEX3>
+
+Explanation:
+The time that was added is made up.
+According to the TLINK l19, e105 overlaps t269.
+Without this change, t269 is identical to the DCT.
+According to the TLINK l69, e105 is before the DCT.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+
+File: APW19980301.0720.tml (TEST)
+
+
+Original:
+<TLINK lid="l11" relType="VAGUE" eventID="e57" relatedToTime="t134" task="A"/>
+
+
+Changed To:
+<TLINK lid="l11" relType="OVERLAP" eventID="e57" relatedToTime="t134" task="A"/>
+
+Explanation:
+Temporal closure narrows it down to BEFORE-OR-OVERLAP:
+The DCT is included in t134, and, according to l42, e57 precedes the DCT.
+It should be OVERLAP, since e57 is a saying event and t134 is
+part of what was said and is "today".
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+
+File: WSJ900813-0157.tml (TEST)
+
+
+Original:
+<TLINK lid="l10" relType="VAGUE" eventID="e349" relatedToTime="t456" task="A"/>
+
+Changed To:
+<TLINK lid="l10" relType="BEFORE-OR-OVERLAP" eventID="e349" relatedToTime="t456" task="A"/>
+
+Explanation:
+e349 overlaps the DCT (value="1990-08-13"), according to TLINK l61.
+t456 (value="1990-08-30") follows the DCT.
+e349 cannot be after t456.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: wsj_0570
+
+Original:
+<TLINK lid="l17" relType="AFTER" eventID="e42" relatedToTime="t104" task="A"/>
+
+Changed To:
+<TLINK lid="l17" relType="BEFORE-OR-OVERLAP" eventID="e42" relatedToTime="t104" task="A"/>
+
+Explanation:
+According to the TLINK l48, e42 overlaps the DCT (value="1989-10-30").
+t104 has the value "1990-02", which follows the DCT.
+Therefore, e42 cannot follow t104.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: wsj_0189.tml
+
+Original:
+<TIMEX3 tid="t48" type="DATE" value="1989" temporalFunction="true" functionInDocument="NONE" anchorTimeID="t35">ano</TIMEX3>
+
+Changed To:
+<TIMEX3 tid="t48" type="DURATION" value="P1Y" temporalFunction="true" functionInDocument="NONE" anchorTimeID="t35">ano</TIMEX3>
+
+Explanation:
+This timex refers to an American fiscal year, which may not correspond to the civil year.
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: 
+
+Original:
+<TLINK lid="l34" relType="OVERLAP" eventID="e55" relatedToTime="t163" task="B"/>
+
+Changed To:
+<TLINK lid="l34" relType="AFTER" eventID="e55" relatedToTime="t163" task="B"/>
+
+Explanation:
+The problem affected the TLINK l13:
+<TLINK lid="l13" relType="AFTER" eventID="e55" relatedToTime="t2151" task="A"/>.
+The temporal reasoning component assumes the DCT is included in any timex
+that has the value "PRESENT_REF".
+This is the case of t2151.
+So, if e55 overlaps the DCT, it must also overlap t2151.
+Because of what the text says, we changed l34 (e55 is after both t2151 and the DCT).
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0745.tml
+
+Original:
+<TLINK lid="l6" relType="BEFORE" eventID="e10" relatedToTime="t161" task="A"/>
+(...)
+<TLINK lid="l26" relType="OVERLAP" eventID="e10" relatedToTime="t157" task="B"/>
+
+Changed To:
+<TLINK lid="l6" relType="AFTER" eventID="e10" relatedToTime="t161" task="A"/>
+(...)
+<TLINK lid="l26" relType="AFTER" eventID="e10" relatedToTime="t157" task="B"/>
+
+Explanation:
+According to the TLINK l6, e10 precedes t161, which has the value "PRESENT_REF".
+The temporal reasoning component assumes the DCT is included in any timex
+that has the value "PRESENT_REF".
+According to the TLINK l26, e10 overlaps the DCT. Therefore it should also overlap t161.
+The text seems to indicate that it should actually follow the DCT, and also t161.
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: 
+
+Original:
+<TLINK lid="l6" relType="OVERLAP-OR-AFTER" eventID="e8" relatedToTime="t46" task="A"/>
+
+Changed To:
+<TLINK lid="l6" relType="OVERLAP" eventID="e8" relatedToTime="t46" task="A"/>
+
+
+Explanation:
+According to the TLINK l21, e8 overlaps the DCT.
+The temporal reasoning component assumes the DCT is included in any timex
+that has the value "PRESENT_REF".
+t48 has the value "PRESENT_REF".
+Therefore, e8 must also overlap t48.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: wsj_0584.tml
+
+Original:
+<TLINK lid="l3" relType="BEFORE" eventID="e58" relatedToTime="t292" task="A"/>
+(...)
+<TLINK lid="l26" relType="OVERLAP" eventID="e58" relatedToTime="t286" task="B"/>
+
+Changed To:
+<TLINK lid="l3" relType="OVERLAP" eventID="e58" relatedToTime="t292" task="A"/>
+(...)
+<TLINK lid="l26" relType="BEFORE" eventID="e58" relatedToTime="t286" task="B"/>
+
+Explanation:
+e58 cannot both precede the DCT (value="1989-10-30") and overlap t292 (value="1989-10" mod="START"), which
+precedes the DCT.
+The text seems to indicate that it overlaps t292 and precedes the DCT.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0570.tml
+
+Original:
+<TLINK lid="l23" relType="VAGUE" eventID="e54" relatedToTime="t108" task="A"/>
+
+Changed To:
+<TLINK lid="l23" relType="OVERLAP-OR-AFTER" eventID="e54" relatedToTime="t108" task="A"/>
+
+
+Explanation:
+According to the TLINK l51, e54 overlaps the DCT (value="1989-10-30).
+The DCT follows t108 (value="1989-07"), therefore e54 cannot precede t108.
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0570.tml
+
+Original:
+<TLINK lid="l25" relType="VAGUE" eventID="e109" relatedToTime="t108" task="A"/>
+
+Changed To:
+<TLINK lid="l25" relType="OVERLAP-OR-AFTER" eventID="e109" relatedToTime="t108" task="A"/>
+
+Explanation:
+According to l2, e109 overlaps the DCT (value="1989-10-30").
+t108 (value="1989-07") precedes the DCT, therefore e109 cannot precede t108.
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0662.tml:
+
+Original:
+<TLINK lid="l2" relType="VAGUE" eventID="e7" relatedToTime="t32" task="A"/>
+
+Changed To:
+<TLINK lid="l2" relType="OVERLAP-OR-AFTER" eventID="e7" relatedToTime="t32" task="A"/>
+
+Explanation:
+According to the TLINK l8, e7 overlaps the DCT (value="1989-10-30").
+t32 (value="1989-10-27") precedes the DCT, therefore e7 cannot precede it.
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0586.tml (TEST)
+
+Original:
+<TLINK lid="l71" relType="BEFORE" eventID="e936" relatedToTime="t198" task="B"/>
+
+Changed To:
+<TLINK lid="l71" relType="OVERLAP" eventID="e936" relatedToTime="t198" task="B"/>
+
+Explanation:
+e938 is annotated as overlapping several timexes; some precede and others follow the DCT
+(check TLINKs l22, l23 and l24).
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0745.tml
+
+Original:
+<TLINK lid="l5" relType="BEFORE" eventID="e10" relatedToTime="t158" task="A"/>
+
+
+Changed To:
+<TLINK lid="l5" relType="AFTER" eventID="e10" relatedToTime="t158" task="A"/>
+
+
+Explanation:
+According to the TLINK l26, e10 follows the DCT (value="1989-10-27"),
+which follows t158 (value="1989-W42").
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0736.tml
+
+Original:
+<TLINK lid="l18" relType="VAGUE" eventID="e47" relatedToTime="t67" task="A"/>
+
+Changed To:
+<TLINK lid="l18" relType="BEFORE-OR-OVERLAP" eventID="e47" relatedToTime="t67" task="A"/>
+
+Explanation:
+According to the TLINK l43, e47 overlaps the DCT (value="1989-10-27"),
+which precedes t67 (value="1989-11-01").
+Therefore, e47 cannot follow t67.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0745.tml
+
+Original:
+<TLINK lid="l3" relType="VAGUE" eventID="e149" relatedToTime="t158" task="A"/>
+
+Changed To:
+<TLINK lid="l3" relType="OVERLAP-OR-AFTER" eventID="e149" relatedToTime="t158" task="A"/>
+
+Explanation:
+According to the TLINK l25, e149 overlaps the DCT (value="1989-10-27").
+t158 (value="1989-W42") precedes the DCT.
+Therefore, e149 cannot precede t158.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0520.tml (TEST)
+
+Original: 
+<TLINK lid="l9" relType="VAGUE" eventID="e27" relatedToTime="t1000" task="A"/>
+
+Changed To:
+<TLINK lid="l9" relType="BEFORE-OR-OVERLAP" eventID="e27" relatedToTime="t1000" task="A"/>
+
+
+Explanation:
+According to the TLINK l30, e27 precedes the DCT (value="1989-10-30").
+t1000 (value="1989") includes the DCT. Therefore e27 cannot follow t1000.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: APW19980322.0749.tml
+
+Original:
+<TLINK lid="l10" relType="VAGUE" eventID="e5" relatedToTime="t125" task="B"/>
+
+Changed To:
+<TLINK lid="l10" relType="AFTER" eventID="e5" relatedToTime="t125" task="B"/>
+
+
+Explanation:
+According to l1, e5 follows t126 (value="1998-03-22"),
+which includes the DCT (value="1998-03-22T14:57:00").
+Therefore, it has to follow the DCT, too.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0356.tml
+
+Original:
+<TLINK lid="l5" relType="BEFORE-OR-OVERLAP" eventID="e16" relatedToTime="t22" task="B"/>
+
+Changed To:
+<TLINK lid="l5" relType="AFTER" eventID="e16" relatedToTime="t22" task="B"/>
+
+Explanation:
+According to the TLINK l1, e16 follows t23 (value="1989-11" mod="START"),
+which includes the DCT.
+Therefore, it should also follow the DCT.
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: SJMN91-06338157.tml
+
+Original:
+<TLINK lid="l41" relType="OVERLAP-OR-AFTER" eventID="e50" relatedToTime="t66" task="B"/>
+
+Changed To:
+<TLINK lid="l41" relType="BEFORE" eventID="e50" relatedToTime="t66" task="B"/>
+
+Explanation:
+According to the TLINK l19, e50 is before t88 (value="1991-12-01"),
+which is before the DCT (value="1991-12-03").
+Therefore, e50 must be before the DCT.
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: SJMN91-06338157.tml
+
+Original:
+<TIMEX3 tid="t14" type="DATE" value="1998-01-11" temporalFunction="false" functionInDocument="CREATION_TIME">980111</TIMEX3>
+(...)
+<TLINK lid="l7" relType="BEFORE-OR-OVERLAP" eventID="e6" relatedToTime="t14" task="B"/>
+
+Changed To:
+<TIMEX3 tid="t14" type="DATE" value="1998-01-11T23:00" temporalFunction="false" functionInDocument="CREATION_TIME">980111</TIMEX3>
+(...)
+<TLINK lid="l7" relType="BEFORE" eventID="e6" relatedToTime="t14" task="B"/>
+
+Explanation:
+The time added to the DCT is made up, but it allows one to say that
+e6 precedes the DCT (after all, it is expressed by a past tense verb) and at the
+same time overlaps t17 "today", which is normalized with value="1998-01-11".
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: wsj_0570.tml
+
+Original:
+<TLINK lid="l49" relType="VAGUE" eventID="e45" relatedToTime="t85" task="B"/>
+
+Changed To:
+<TLINK lid="l49" relType="OVERLAP-OR-AFTER" eventID="e45" relatedToTime="t85" task="B"/>
+
+Explanation:
+According to the TLINK l19, e45 overlaps t104 (value="1990-02").
+t104 is after the DCT (value="1989-10-30"),
+therefore e45 cannot precede the DCT.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: 
+
+Original:
+<TLINK lid="l22" relType="VAGUE" eventID="e75" relatedToTime="t232" task="B"/>
+
+Changed To:
+<TLINK lid="l22" relType="AFTER" eventID="e75" relatedToTime="t232" task="B"/>
+
+
+Explanation:
+
+Temporal deduction narrows it down to OVERLAP-OR-AFTER,
+but it clearly follows the DCT according to the text, as
+it is modified by t234 (value="FUTURE_REF").
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: APW19980301.0720.tml
+
+Original:
+<TLINK lid="l35" relType="OVERLAP-OR-AFTER" eventID="e30" relatedToTime="t122" task="B"/>
+
+Changed To:
+<TLINK lid="l35" relType="BEFORE-OR-OVERLAP" eventID="e30" relatedToTime="t122" task="B"/>
+
+Explanation:
+e30 overlaps a timex that precedes the DCT:
+According to the TLINK l7, e30 overlaps t127 (value="1998-02-27").
+t127 precedes the DCT (value="1998-03-01T14:11:00").
+Therefore, e30 either precedes or overlaps the DCT.
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: PRI19980306.2000.1675.tml
+
+Original:
+<TIMEX3 tid="t17" type="DATE" value="1998-03-06" temporalFunction="false" functionInDocument="CREATION_TIME">19980306</TIMEX3>
+
+Changed To:
+<TIMEX3 tid="t17" type="DATE" value="1998-03-06T23:00" temporalFunction="false" functionInDocument="CREATION_TIME">19980306</TIMEX3>
+
+Explanation:
+The time added to the DCT is made up.
+Otherwise the DCT would be a superinterval of t18.
+Since t18 is annotated as overlapping e10, e10 would also
+have to overlap the DCT, but that is not entirely clear (it is denoted
+by a past tense verb).
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: wsj_0558.tml
+
+Original: 
+<TLINK lid="l45" relType="OVERLAP" eventID="e42" relatedToTime="t43" task="B"/>
+
+Changed To:
+<TLINK lid="l45" relType="BEFORE" eventID="e42" relatedToTime="t43" task="B"/>
+
+Explanation:
+It would give rise to an inconsistency in the annotations, as
+e35 is annotated as being after e42 (TLINK l2c) and preceding the DCT, t43 (TLINK l44).
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: wsj_0670.tml
+
+Original:
+<TLINK lid="l1c" relType="AFTER" relatedToEvent="e39" eventID="e22" task="C"/>
+
+Changed To:
+<TLINK lid="l1c" relType="BEFORE-OR-OVERLAP" relatedToEvent="e39" eventID="e22" task="C"/>
+
+Explanation:
+e22 is before the DCT (TLINK l38), and e39 overlaps the DCT (TLINK l39).
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_0184.tml
+
+Original:
+<TLINK lid="l7c" relType="VAGUE" relatedToEvent="e54" eventID="e53" task="C"/>
+
+Changed To:
+<TLINK lid="l7c" relType="BEFORE-OR-OVERLAP" relatedToEvent="e54" eventID="e53" task="C"/>
+
+Explanation:
+e53 is before the DCT (TLINK l28), and e54 overlaps it (TLINK l29).
+Therefore, e53 cannot be after e54.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: wsj_0981.tml
+
+Original:
+<TLINK lid="l3c" relType="VAGUE" relatedToEvent="e64" eventID="e49" task="C"/>
+
+Changed To:
+<TLINK lid="l3c" relType="BEFORE-OR-OVERLAP" relatedToEvent="e64" eventID="e49" task="C"/>
+
+Explanation:
+e64 overlaps the DCT (TLINK l29), and e49 precedes it (l27).
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: wsj_1013.tml
+
+Original:
+<TLINK lid="l22c" relType="VAGUE" relatedToEvent="e140" eventID="e136" task="C"/>
+
+
+Changed To:
+<TLINK lid="l22c" relType="BEFORE-OR-OVERLAP" relatedToEvent="e140" eventID="e136" task="C"/>
+
+
+Explanation:
+e136 is before the DCT (TLINK l54) and e140 overlaps it (l58).
+
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: wsj_0557.tml
+
+Original:
+<TLINK lid="l34" relType="OVERLAP" eventID="e39" relatedToTime="t78" task="B"/>
+
+Changed To:
+<TLINK lid="l34" relType="BEFORE" eventID="e39" relatedToTime="t78" task="B"/>
+
+Explanation:
+Without this change there would be an inconsistency:
+e39 is before e42 (TLINK l1c), and e42 is before the DCT.
+Therefore, e39 should also be before the DCT.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+
+===========================
+File: AP900815-0044.tml
+
+Original:
+<TLINK lid="l32c" relType="VAGUE" relatedToEvent="e290" eventID="e284" task="C"/>
+
+Changed To:
+<TLINK lid="l32c" relType="OVERLAP-OR-AFTER" relatedToEvent="e290" eventID="e284" task="C"/>
+
+Explanation:
+e284 overlaps the DCT (TLINK l90), and e290 precedes it (l91).
+Therefore, e284 cannot precede e290.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
+===========================
+File: PRI19980303.2000.2550.tml (TEST)
+
+Original:
+<TLINK lid="l21c" relType="VAGUE" relatedToEvent="e33" eventID="e28" task="C"/>
+
+Changed To:
+<TLINK lid="l21c" relType="OVERLAP-OR-AFTER" relatedToEvent="e33" eventID="e28" task="C"/>
+
+Explanation:
+e28 overlaps the DCT (TLINK l5).
+e33 is before the DCT (TLINK l6).
+Therefore, e28 cannot be before e33.
+
+How the error was detected:
+Temporal closure after ordering timexes according to their "value" attribute.
+
