@@ -15,5 +15,5 @@ Os argumentos `tokenE` e `tokenT`, representam o evento e a expressão temporal,
 A `acurácia` é calculada como a quantidade de acertos dividido pela quantidade de instâncias classificadas pela regra:
 
 $$
-acurácia = \frac{acertos}{instâncias \ \ classificadas}
+acurácia = \frac{total \ de \ acertos}{quant. \ de \ acionamentos \ da \ regra}
 $$
