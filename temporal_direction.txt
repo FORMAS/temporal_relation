@@ -1,0 +1,303 @@
+word_pt;relType;word_en
+abandonar;BEFORE;abandon
+acabar;AFTER;end, finish
+achar;AFTER;find, think
+acreditar;AFTER;believe
+acrescentar;AFTER;add
+acusar;AFTER;accuse, charge
+adotar;BEFORE;adopt
+advertir;BEFORE;warn
+afetar;AFTER;affect
+afirmar;AFTER;state
+agendar;BEFORE;schedule, set
+ajudar;BEFORE;help, aid
+alargar;BEFORE;extend, broaden
+alegar;AFTER;claim
+alertar;BEFORE;warn
+ameaçar;BEFORE;threaten
+antecipar;BEFORE;anticipate,foresee
+anunciar;BEFORE;announce, report
+anúncio;BEFORE;announcement
+apelar;BEFORE;call
+aplaudir;AFTER;applaud
+aplauso;AFTER;applause
+apresentar;AFTER;introduce, file
+apressar;BEFORE;hurry
+aprovação;BEFORE;approval
+aprovar;BEFORE;approve
+apurar;AFTER;determine
+arriscar;BEFORE;risk
+assegurar;BEFORE;ensure
+assinalar;AFTER;signal
+assinar;BEFORE;sign
+assinatura;BEFORE;signing
+assumir;BEFORE;assume
+atacar;BEFORE;attack, strike
+ataque;BEFORE;attack, strike
+atrasar;BEFORE;stall, delay
+autorizar;BEFORE;authorize
+auxiliar;BEFORE;aid
+avaliar;AFTER;evaluate
+avançar;BEFORE;advance, push
+avisar;BEFORE;warn, caution
+aviso;BEFORE;warning
+bloquear;BEFORE;block
+boicotar;BEFORE;undermine
+candidatar;BEFORE;run
+capaz;BEFORE;able
+citar;AFTER;quote
+combater;BEFORE;fight
+começar;BEFORE;start
+compensar;AFTER;offset
+completar;AFTER;complete
+comprometer;BEFORE;pledge, undermine
+conceber;BEFORE;design
+concluir;AFTER;conclude
+conclusão;AFTER;conclusion
+concordar;BEFORE;agree
+concurso;BEFORE;quiz
+condenar;AFTER;condemn, convict
+confessar;AFTER;confess
+confirmar;AFTER;confirm
+confrontar;AFTER;face
+confronto;AFTER;confrontation
+conhecer;AFTER;know
+conquistar;BEFORE;conquer
+conseguir;BEFORE;manage
+consequência;AFTER;result
+constituir;BEFORE;appoint
+contactar;BEFORE;contact
+contar;AFTER;tell
+contestar;AFTER;challenge
+contribuir;BEFORE;contribute
+convencer;BEFORE;convince
+conversação;AFTER;talk
+conversar;AFTER;talk
+convidar;BEFORE;invite
+convocar;BEFORE;call
+corrigir;AFTER;correct
+criação;BEFORE;creation
+criar;BEFORE;create
+criticar;AFTER;criticize
+de acordo com;AFTER;according to
+decidir;BEFORE;decide
+decisão;BEFORE;decision
+declaração;BEFORE;declaration
+declarar;BEFORE;declare
+definir;BEFORE;define
+deixar;BEFORE;let
+denunciar;AFTER;report
+desdenhar;AFTER;downplay
+desencadear;BEFORE;trigger
+desenhar;BEFORE;design
+desenvolvimento;BEFORE;development
+desintegrar;AFTER;disintegrate
+desistir;AFTER;quit
+desvalorização;AFTER;write-down
+desvalorizar;AFTER;gloss
+devolver;AFTER;return
+dificuldade;BEFORE;difficulty
+discurso;BEFORE;speech
+discutir;BEFORE;discuss
+disposto;BEFORE;willing
+divulgar;BEFORE;release
+dizer;AFTER;say
+elaborar;BEFORE;elaborate
+encerramento;AFTER;close
+encerrar;AFTER;shut down
+enfrentar;BEFORE;face
+entender;AFTER;understand
+esclarecer;AFTER;make clear
+escolher;BEFORE;choose
+esconder;AFTER;hide
+esforçar;BEFORE;try hard
+especificar;AFTER;specify
+especular;BEFORE;speculate
+espera;BEFORE;wait
+esperar;BEFORE;wait, expect
+estimar;BEFORE;estimate
+estimativa;BEFORE;estimate
+estimular;BEFORE;boost
+exigir;BEFORE;demand
+facilitar;BEFORE;ease
+falhar;BEFORE;fail
+fechar;AFTER;close
+fecho;AFTER;close
+ficar;BEFORE;stay
+finalizar;AFTER;finalize
+fixação;BEFORE;set
+fixar;BEFORE;set
+forçar;BEFORE;force
+formar;BEFORE;form
+fugir;BEFORE;flee
+fundar;BEFORE;found
+habituar;BEFORE;use
+hipotecar;BEFORE;mortgage
+impacto;BEFORE;impact
+impedir;BEFORE;prevent
+implicar;BEFORE;imply
+impulsionar;BEFORE;boost
+impulso;BEFORE;boost
+indicar;BEFORE;indicate
+informar;AFTER;inform, report
+iniciar;BEFORE;begin
+iniciativa;BEFORE;initiative
+interessado;BEFORE;interested
+inventar;BEFORE;invent
+investigar;AFTER;investigate
+lançar;BEFORE;release
+levantar;BEFORE;rise
+levar;BEFORE;take
+listar;AFTER;list
+manifestar;BEFORE;demonstrate
+mencionar;AFTER;mention
+mobilizar;BEFORE;rally, mobilize
+mostrar;AFTER;show
+mover;BEFORE;move
+movimento;BEFORE;movement
+mudança;AFTER;change, move
+mudar;AFTER;change, move
+negar;AFTER;deny, negate
+negociar;BEFORE;negociate
+nomear;BEFORE;appoint
+notar;AFTER;notice
+notícia;AFTER;news
+observar;AFTER;observe, watch
+obter;BEFORE;obtain
+oferecer;BEFORE;offer
+oferta;BEFORE;offer
+olhar;AFTER;look
+opor;BEFORE;oppose
+ordenar;BEFORE;order
+organizar;BEFORE;organize
+orquestrar;BEFORE;orchestrate
+ouvir;AFTER;listen
+pagamento;AFTER;payment
+pagar;AFTER;pay
+pagável;AFTER;payable
+parar;AFTER;stop
+partir;BEFORE;break, leave
+passar;BEFORE;pass
+pedir;BEFORE;ask
+pensar;AFTER;think
+perda;AFTER;loss
+perder;AFTER;lose
+perguntar;BEFORE;ask
+permitir;BEFORE;allow
+planear;BEFORE;plan
+plano;BEFORE;plan
+posicionar;BEFORE;position
+prejudicar;BEFORE;harm
+preocupar;AFTER;worry
+preparar;BEFORE;prepare
+pressionar;BEFORE;urge
+pretender;BEFORE;intend
+prever;BEFORE;predict, foresee
+procura;BEFORE;demand, search
+procurar;BEFORE;search
+programa;BEFORE;program
+proibir;BEFORE;forbid
+prolongar;AFTER;extend
+prometer;BEFORE;promise
+propor;BEFORE;propose
+proposta;BEFORE;proposal
+prorrogar;AFTER;extend
+prosseguir;AFTER;continue
+provar;AFTER;prove, taste
+proveniente;AFTER;originating
+provocar;BEFORE;cause, provoke
+publicar;AFTER;publish
+publicitar;BEFORE;advertise
+queixa;AFTER;complaint
+queixar;AFTER;complain
+querer;BEFORE;want
+questionar;AFTER;question
+ratificar;AFTER;ratify
+reacender;AFTER;rekindle
+realização;BEFORE;holding
+realizar;BEFORE;conduct
+recalcular;AFTER;recalculate
+recapitalização;AFTER;recapitalization
+receber;AFTER;receive
+recomprar;AFTER;buy back
+reconhecer;AFTER;recognize, acknowledge
+recuperar;AFTER;recover
+recurso;BEFORE;appeal
+recusar;BEFORE;refuse
+reestruturação;AFTER;restructuring
+referir;AFTER;mention, refer
+refletir;AFTER;reflect
+reforçar;BEFORE;strengthen
+reformar;AFTER;reform
+registar;AFTER;register
+registo;AFTER;registration
+regozijar;AFTER;cheer
+regressar;AFTER;return
+rejeitar;BEFORE;reject
+relatar;AFTER;report
+relato;AFTER;report
+relatório;AFTER;report
+renegociar;BEFORE;renegociate
+repetir;AFTER;repeat
+reportagem;AFTER;report
+repudiar;BEFORE;disavow
+responder;AFTER;answer
+resposta;AFTER;answer
+resultado;AFTER;result
+resultar;AFTER;result
+retirada;AFTER;withdraw
+retirar;AFTER;withdraw
+revelar;AFTER;reveal
+rezar;BEFORE;pray
+rumor;AFTER;rumor
+saber;AFTER;know
+saída;AFTER;exit
+sair;AFTER;get out
+salientar;AFTER;emphasize
+salvar;BEFORE;save
+saudar;AFTER;welcome, hail
+seguir;AFTER;follow
+segundo;AFTER;according
+sentir;AFTER;feel
+sinal;BEFORE;signal, sign, hint
+sofrer;AFTER;suffer
+subida;BEFORE;rise
+subir;BEFORE;rise
+sublinhar;AFTER;emphasize
+submeter;BEFORE;file, submit
+suceder;AFTER;succeed
+sugerir;BEFORE;suggest
+sujeitar;BEFORE;subject
+surgir;AFTER;emerge
+surpreender;BEFORE;surprise
+suspender;AFTER;lift, suspend
+telefonar;AFTER;call
+telefonema;AFTER;call
+tentar;BEFORE;try, seek, attempt
+tentativa;BEFORE;attempt
+terminar;AFTER;finish, expire, end, conclude, close, terminate
+tirar;AFTER;draw, take
+tomar;BEFORE;seize, take
+tornar;BEFORE;become
+transição;BEFORE;transition
+trazer;BEFORE;bring
+ultrapassar;AFTER;exceed
+usar;AFTER;use
+uso;AFTER;use
+usufruir;AFTER;use
+utilização;AFTER;usage
+utilizar;AFTER;use
+venda;BEFORE;sale, selling, sell-off
+vender;BEFORE;sell
+véspera;BEFORE;eve
+visar;BEFORE;aim
+voltar;BEFORE;come back, repeat
+discursar;BEFORE;speech
+dispor;BEFORE;willing
+impactar;BEFORE;impact
+interessar;BEFORE;interested
+movimentar;BEFORE;movement
+ofertar;BEFORE;offer
+planar;BEFORE;plan
+programar;BEFORE;program
+proposto;BEFORE;proposal
