@@ -22,7 +22,7 @@ Apresentaremos o nosso conjunto de *features* organizadas por tipo de informaç�
   - `event-conjunction-closest-precede:` conjunção mais próxima antes do evento da relação processada
   - `event-first-order:` o evento precede textualmente a expressão temporal?
   - `event-has-modal-verb-precede:` verifica se o evento possui verbos modais antes dele 
-  - `event-modal-verb:` texto verbo modal antes do evento
+  - `event-modal-verb:` texto do verbo modal antes do evento
   - `event-preposition-precede:` tem como valor a preposição que precede o evento no texto
   - `event-timex3-distance:` distância entre o evento e expressão temporal.
   - `event-timex3-no-between-order:` verifica se não há evento ou expressão temporal entre o evento e a expressão temporal da relação sob classificação 
@@ -41,7 +41,7 @@ Apresentaremos o nosso conjunto de *features* organizadas por tipo de informaç�
   - `event-closest-to-timex3-pos:` classe gramatical do evento mais próximo da expressão temporal da relação temporal sob classificação
   - `event-gov-verb-aspect:` aspecto verbal do verbo que rege o evento. Se evento for verbo, o valor dessa *feature* é o aspecto verbal do próprio evento
   - `event-gov-verb-tense:` tempo verbal do verbo que rege o evento. Se evento for verbo, o valor dessa *feature* é o tempo verbal do próprio evento
-  - `event-head-pos:` classe gramatical do nó pai de evento na árvore de dependência
+  - `event-head-pos:` classe gramatical do nó pai do evento na árvore de dependência
   - `event-intervening-following-tense:` tempo verbal do evento que é mencionado entre o evento e a expressão temporal, nesta ordem textual, da relação temporal sob classificação e está mais próximo da expressão temporal.  
      Por exemplo, `EVENT ------------ event2.tense --- TIMEX`.
   - `event-pos:` classe gramatical do evento
@@ -62,9 +62,9 @@ Apresentaremos o nosso conjunto de *features* organizadas por tipo de informaç�
   - `timex3-pos:` classe gramatical da expressão temporal
 
 ## Informações Sintáticas
-  - `event-dep:` relação de dependência o evento tem com seu pai?
+  - `event-dep:` relação de dependência que o evento tem com seu regente?
   - `event-head-is-root:` o evento modifica diretamente a raiz?  
-    (ex: o evento é um filho direto da raiz na arvore de dependência?)
+    (ex: o evento é um filho direto da raiz da árvore de dependência?)
   - `event-is-ancestor-timex3:` o evento é a entidade regente na relação?
   - `event-preposition-gov:` preposição que rege sintaticamente o evento
   - `event-root:` o evento é a raiz da árvore de dependência sintática? 
@@ -74,7 +74,7 @@ Apresentaremos o nosso conjunto de *features* organizadas por tipo de informaç�
   - `reichenbach-temporal-mod-function:` Função de modificação temporal, existe uma relação `nmod` no caminho de dependência do evento à expressão temporal? 
   - `timex3-dep:` relação de dependência sintática da expressão temporal com seu regente (nó pai).
   - `timex3-head-is-root:` a expressão temporal modifica diretamente a raiz?  
-    (ex: a expressão temporal é um filho direto da raiz na arvore de dependência)
+    (ex: a expressão temporal é um filho direto da raiz da arvore de dependência)
   - `timex3-is-ancestor-event:` a expressão temporal é a entidade regente na relação?
   - `timex3-preposition-gov:` preposição que rege sintaticamente a expressão temporal
     
@@ -88,8 +88,8 @@ Apresentaremos o nosso conjunto de *features* organizadas por tipo de informaç�
   - `signal-precede-timex3-child-timex3:` o sinal que precede a expressão temporal é regido sintaticamente por esta expressão?
   - `signal-precede-event-dep-if-child-event:` se o sinal que precede o evento for regido por este evento, qual é o tipo de relação de dependência sintática?
   - `signal-precede-timex3-dep-if-child-timex3:` se o sinal que precede a expressão temporal for regido por esta expressão, qual é o tipo de relação de dependência sintática?
-  - `signal-precede-event-distance-event:` distância entre sinal que precede o evento e este evento
-  - `signal-precede-timex3-distance-timex3:` distância entre sinal que precede a expressão temporal e esta expressão
+  - `signal-precede-event-distance-event:` distância entre o evento e o sinal temporal que o precede
+  - `signal-precede-timex3-distance-timex3:` distância entre a expressão temporal e o sinal temporal que a precede
   - `signal-precede-event-pos:` classe gramatical do sinal que precede o evento
   - `signal-precede-timex3-pos:` classe gramatical do sinal que precede a expressão temporal
   - `signal-precede-event-text:` texto do sinal que precede o evento
